@@ -2,8 +2,17 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 
-posts = [{'author': 'John', 'title': 'pitcher', 'content': 'pitchoned', 'date_posted':'April 1,2020'}]
-[{'author': 'Blaise Hala', 'title': 'kode', 'content': 'pitchoned2', 'date_posted':'November 1,2020'}]
+posts =[
+  {
+  'author': 'John Doe',
+   'title': 'pitcher', 
+   'content': 'pitchoned', 
+   '_date_posted_':'April 1,2020'
+   
+   },
+{'author': 'Blaise Hala', 'title': 'kode', 'content': 'pitchoned2', 'date_posted':'November 1,2020'}
+
+]
 
 
 @app.route('/')
@@ -16,7 +25,7 @@ def home():
 
 @app.route('/about')
 def about():
-  return render_template('about.html')
+  return render_template('about.html',title="About")
 
 
 
