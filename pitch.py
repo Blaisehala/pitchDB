@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template,url_for
+
 app = Flask(__name__)
 
 
@@ -7,7 +8,7 @@ posts =[
   'author': 'John Doe',
    'title': 'pitcher', 
    'content': 'pitchoned', 
-   '_date_posted_':'April 1,2020'
+   'date_posted':'April 1,2020'
    
    },
 {'author': 'Blaise Hala', 'title': 'kode', 'content': 'pitchoned2', 'date_posted':'November 1,2020'}
