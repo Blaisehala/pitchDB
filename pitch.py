@@ -37,6 +37,7 @@ def about():
 def register():
   form = RegistrationForm()
   if form.validate_on_submit():
+    # flash message sends one time alert in flask
     flash (f'Account created for {form.username.data}')
   return render_template ('register.html',title='Register',form=form)
 
