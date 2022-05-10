@@ -1,9 +1,10 @@
-from flask import Flask, render_template, url_for
+from crypt import methods
+from flask import Flask, flash, render_template, url_for
 from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
 
-app.config['SECRET-KEY'] = '89d9a808fe229b4cf4e66a3b51e52fdb'
+app.config['SECRET_KEY'] = '89d9a808fe229b4cf4e66a3b51e52fdb'
 
 
 posts =[
@@ -32,9 +33,11 @@ def about():
   return render_template('about.html',title="About")
 
 
-@app.route('/register')
+@app.route('/register', methods=['GET', 'POST'])
 def register():
   form = RegistrationForm()
+  if form.validate_on_submit():
+    flash (f'Account created for {form.username.data}')
   return render_template ('register.html',title='Register',form=form)
 
 
