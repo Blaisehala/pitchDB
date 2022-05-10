@@ -1,17 +1,17 @@
 {% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf%}
 
 {% block content %}
 
 <div class="content-section">
   <!-- post info in same route -->
+
+
   <form method='POST' action="">
     {{ form.hidden_tag() }}
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">Join Us</legend>
-      <div class="form-group">
-        {{ form.username.label(class="form-control-label") }}
-        {{ form.username(class="form-control form-control-lg") }}
-      </div>
+      <legend class="border-bottom mb-4">Login</legend>
+     
       <div class="form-group">
         {{ form.email.label(class="form-control-label") }}
         {{ form.email(class="form-control  form-control-lg") }}
@@ -20,10 +20,13 @@
         {{ form.password.label(class="form-control-label") }}
         {{ form.password(class="form-control  form-control-lg") }}
       </div>
-      <div class="form-group">
-        {{ form.confirm_password.label(class="form-control-label") }}
-        {{ form.confirm_password(class="form-control  form-control-lg") }}
+      <div class="form-check">
+        {{ form.remember(class= 'form-check-input') }}
+        {{ form.remember.label(class= 'form-check-label') }}
+
+
       </div>
+    
 
     </fieldset>
     <div class="form-group">
@@ -36,9 +39,25 @@
 </div>
 <hr>
 <div>
- <a href="{{ url_for('login') }}" >Login In</a>
+  Need an Account ?     <a href="{{ url_for('register') }}" >Register here</a>
 </div>
 
-
-
 {% endblock content  %}
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
