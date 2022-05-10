@@ -1,5 +1,5 @@
 from crypt import methods
-from flask import Flask, flash, render_template, url_for
+from flask import Flask, flash, render_template, url_for,flash,redirect
 from forms import RegistrationForm, LoginForm
 
 app = Flask(__name__)
@@ -38,7 +38,8 @@ def register():
   form = RegistrationForm()
   if form.validate_on_submit():
     # flash message sends one time alert in flask
-    flash (f'Account created for {form.username.data}')
+    flash(f'Account created for {form.username.data}!','success')
+    return redirect(url_for('home'))
   return render_template ('register.html',title='Register',form=form)
 
 
