@@ -1,4 +1,4 @@
-
+from datetime import  datetime
 from flask import Flask, flash, render_template, url_for,flash,redirect
 from forms import RegistrationForm, LoginForm
 from flask_sqlalchemy import SQLAlchemy
@@ -10,13 +10,16 @@ app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///site.db'
 db= SQLAlchemy(app) 
 
 
-class user(db.Model):
+class User(db.Model):
   # setting unique identifer
   id = db.Column(db.Integer, primary_key=True)
   username = db.Column(db.String(20), unique=True, nullable=False)
-  username = db.Column(db.String(120), unique=True, nullable=False)
+  email = db.Column(db.String(120), unique=True, nullable=False)
   image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
   password = db.Column(db.String(60),nullable=False)
+
+  # one to many rlshp
+  pitches = db.relationship('Pitch',backref='author', lazy=True)
 
 
 # How object is printed
@@ -26,6 +29,16 @@ class user(db.Model):
 
 
 class Pitch(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  title = db.Column(db.String(100), nullable=False)
+  date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+  content = db.Column(db.Text, nullable=False)
+  user_id = db.Column(db.Integer,db.ForeignKey('user.id'), nullable=False)
+
+
+  # How object is printed
+  def __repr__(self):
+      return f"Pitch('{self.title},'{self.date_posted}')"
 
 
 
