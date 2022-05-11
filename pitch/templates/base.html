@@ -42,26 +42,16 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('home')}}">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('about')}}">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('login')}}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('register')}}">Register</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">
-              Company
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Blog</a></li>
-              <li><a class="dropdown-item" href="#">About Us</a></li>
-              <li><a class="dropdown-item" href="#">Contact us</a></li>
-            </ul>
-          </li>
+        
+          {% if current_user.is_authenticated %}
+          <a class="nav-item nav-link" href="{{url_for('new_pitch')}}"> New pitch </a>
+            <a class="nav-item nav-link" href="#"> Hi {{ current_user.username }} </a>
+            <a class="nav-item nav-link" href="{{url_for('logout')}}">Logout</a>
+          {% else %}
+            <a class="nav-item nav-link" href="{{url_for('login')}}">Login</a>
+            
+                  <a class="nav-item nav-link" href="{{url_for('register')}}">Signup</a>
+                {% endif %}
         </ul>
       </div>
     </div>

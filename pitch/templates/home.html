@@ -2,9 +2,19 @@
 {% block content %}
 
   {% for post in posts %}
-    <h1>{{ post.title }}</h1>
-    <p>{{post.author}} on {{post.date_posted}}</p>
-    <p>{{ post.content}}</p>
+
+  <div class="card mb-2">
+    <div class="card-header">
+      <p>{{post.author.username}} on {{post.date_posted}}</p>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.content}}</p>
+      <a href="{{url_for('update_pitch',pitch_id=post.id)}}" class="btn btn-primary">Update Pitch</a>
+      <a href="{{url_for('delete_pitch',pitch_id=post.id)}}" class="btn btn-danger">Delete Pitch</a>
+    </div>
+  </div>
+
   {% endfor %}
 
 {% endblock content  %}
