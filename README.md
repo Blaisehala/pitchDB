@@ -1,7 +1,7 @@
 ## PITCHDB
 
 
-```By Blaise Hala
+By Blaise Hala
 
 
 ## Description 
@@ -39,8 +39,7 @@ https://github.com/Blaisehala/pitchDB
 ```
 git clone https://github.com/Blaisehala/pitchDB
 ```
-- Open terminal and navigate to the directory of the project you just cloned to your computer
-- Run the following command to start the server using virtual environment
+- Open terminal and navigate to the directory of the project you just cloned to your computer and run the following command to start the server using virtual environment
 
 ```
 python3.8 -m venv --without-pip virtual
