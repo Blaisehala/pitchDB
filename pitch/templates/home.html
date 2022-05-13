@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h3>Welcome to Pitch.io</h3>
+<hr>
+<div>
+  <img src="https://img.freepik.com/free-vector/online-business-virtual-meeting-illustration-video-conference-call_51635-4504.jpg" alt="33">
+</div>
+
 {% for post in posts %}
 
 
@@ -13,8 +19,8 @@
     <p class="card-text">{{ post.content}}</p>
     <p>{{post.author.username}} on {{post.date_posted}}</p>
 
-    <a href="{{url_for('update_pitch',pitch_id=post.id)}}" class="btn btn-primary">comment</a>
-    <a href="{{url_for('delete_pitch',pitch_id=post.id)}}" class="btn btn-danger">Delete Pitch</a>
+    <a href="{{url_for('update_pitch',pitch_id=post.id)}}" class="btn btn-outline-dark mt-2">comment</a>
+    <a href="{{url_for('delete_pitch',pitch_id=post.id)}}" class="btn btn-outline-info">like</a>
   </div>
 </div>
 
@@ -22,6 +28,8 @@
 
 
 {% endfor %}
+
+
 
 {% endblock content  %}
 

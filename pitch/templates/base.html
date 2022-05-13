@@ -34,7 +34,7 @@
       <div class="navbar-dark text-center my-2">
         <button class="navbar-toggler w-75" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
           aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span> <span class="align-middle">Menu</span>
+          
         </button>
       </div>
       <div class="text-center mt-3 collapse navbar-collapse" id="navbarNavDropdown">
@@ -84,13 +84,16 @@
               <a href="{{url_for('health')}}"><li class="list-group-item list-group-item-dark">Health</li></a> <br>
               <a href="{{url_for('sports')}}"><li class="list-group-item list-group-item-dark">Sports</li></a> <br>
               <a href="{{url_for('investigative')}}"><li class="list-group-item list-group-item-dark">Investigation</li></a> <br>
+              
             </ul>
           </p>
-        </div>
+        </div><br><br><br>
+        <a href="{{ url_for('login') }}" class="btn btn-dark mt-2">Create a Pitch</a>
       </div>
     </div>
   </main>
 
+  
 
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
