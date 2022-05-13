@@ -24,6 +24,30 @@ def home():
     posts = Pitch.query.all()
     return render_template('home.html',posts=posts)
 
+@app.route('/business')
+def business():
+    posts = Pitch.query.all()
+    return render_template('business.html',posts=posts)
+
+
+@app.route('/health')
+def health():
+    posts = Pitch.query.all()
+    return render_template('health.html',posts=posts)
+
+@app.route('/sports')
+def sports():
+    posts = Pitch.query.all()
+    return render_template('sports.html',posts=posts)
+
+
+@app.route('/investigative')
+def investigative():
+    posts = Pitch.query.all()
+    return render_template('investigative.html',posts=posts)
+
+
+
 
 
 
